@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffdce9"><title>11:11 — For Ishika</title>
+<style>
+:root{--rose:#c94f83;--berry:#87385f;--pink:#ffe0ec;--pale:#fff8fb;--ink:#63394f}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#ffeaf2;color:var(--ink);font-family:Georgia,serif;overflow-x:hidden}
+button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid var(--berry);outline-offset:4px}
+#ambient{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0;background:radial-gradient(ellipse at 15% 15%,#fff 0,transparent 38%),radial-gradient(ellipse at 85% 75%,#ffc8dd 0,transparent 38%),linear-gradient(135deg,#fff8fb,#ffe2ed 55%,#fbd2e4)}
+.float{position:absolute;bottom:-60px;opacity:0;animation:floatUp linear infinite;color:#e58caf;text-shadow:0 4px 18px #d66b9944}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0) scale(.7);opacity:0}10%{opacity:.7}90%{opacity:.45}100%{transform:translateY(-115vh) rotate(35deg) scale(1.3);opacity:0}}
+.sparkle{position:fixed;pointer-events:none;z-index:4;animation:spark .9s ease-out forwards;font-size:22px}
+@keyframes spark{to{transform:translateY(-55px) scale(1.7);opacity:0}}
+.wrap{position:relative;z-index:1;width:100%;min-height:100vh}
+.screen{display:none;min-height:100svh;padding:clamp(22px,5vw,64px) 18px;align-items:center;justify-content:center;animation:screenIn .8s ease both}
+.screen.active{display:flex}@keyframes screenIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.shell{width:min(100%,980px);margin:auto;text-align:center}
+.kicker{font:700 11px/1.4 Arial,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#b45b80;margin:0 0 18px}
+h1{font-size:clamp(3.3rem,12vw,8.5rem);line-height:.9;font-weight:500;color:var(--berry);margin:12px 0 26px;text-shadow:0 8px 35px #c94f8320}
+h2{font-size:clamp(2.5rem,8vw,5.5rem);line-height:.98;font-weight:500;color:var(--berry);margin:10px 0 22px}
+h3{font-weight:500;color:var(--berry);font-size:clamp(1.35rem,4vw,2rem)}
+.lead{font-size:clamp(1.2rem,3.4vw,1.8rem);line-height:1.6;max-width:760px;margin:0 auto 28px}
+.glass{background:#ffffffd9;border:1px solid #fff;box-shadow:0 25px 80px #a94a7220,inset 0 1px #fff;border-radius:clamp(24px,5vw,48px);padding:clamp(28px,6vw,76px);backdrop-filter:blur(18px)}
+.btn{border:0;border-radius:999px;padding:16px 28px;background:linear-gradient(135deg,#e98eb2,#bd477b);color:white;font:700 14px Arial,sans-serif;letter-spacing:.04em;box-shadow:0 12px 28px #c94f8340;transition:.25s}
+.btn:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 18px 34px #c94f8355}
+.btn.light{background:#fff;color:var(--berry);border:1px solid #f2bdd1;box-shadow:none}
+.heroHeart{font-size:clamp(70px,16vw,140px);display:inline-block;animation:heartbeat 1.7s infinite;filter:drop-shadow(0 14px 22px #e78eb566)}
+@keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.13)}28%{transform:scale(1)}42%{transform:scale(1.09)}}
+.count{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:32px 0}
+.time{min-width:clamp(70px,15vw,130px);padding:18px 12px;background:#fff;border:1px solid #f4c2d5;border-radius:24px;box-shadow:0 12px 30px #c94f8314}
+.time b{display:block;font:800 clamp(2rem,6vw,3.5rem) Arial;color:var(--berry)}.time small{font:11px Arial;letter-spacing:.17em;color:#a66a83}
+.storyCard{width:min(100%,900px);background:#ffffffdf;border:1px solid white;border-radius:42px;padding:clamp(28px,6vw,70px);box-shadow:0 25px 90px #a94a7222;text-align:center}
+.chapterNo{font:700 11px Arial;letter-spacing:.24em;text-transform:uppercase;color:#b45b80}
+.type{white-space:pre-line;font-size:clamp(1.15rem,3vw,1.55rem);line-height:1.85;max-width:720px;margin:25px auto;background:#fff8fb;border:1px solid #f7d5e2;border-radius:26px;padding:clamp(22px,4vw,38px);text-align:left}
+.reveal{animation:reveal .8s ease both}@keyframes reveal{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:none}}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:30px auto;max-width:760px}
+.flip{min-height:170px;border:1px solid #f1c1d4;border-radius:25px;background:linear-gradient(145deg,#fff,#fff0f6);padding:22px 16px;color:var(--berry);box-shadow:0 12px 30px #c94f8315;transition:.3s;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.flip:hover{transform:translateY(-6px) rotate(-1deg)}.flip .back{display:none;line-height:1.6;font-size:1.05rem}.flip.open{background:linear-gradient(145deg,#ffe0ec,#fff8fb);transform:scale(1.025)}.flip.open .front{display:none}.flip.open .back{display:block}
+.photoGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:760px;margin:28px auto}
+.polaroid{background:white;padding:10px 10px 20px;box-shadow:0 15px 35px #8d46621f;transform:rotate(-2deg);transition:.3s}.polaroid:nth-child(even){transform:rotate(2deg)}.polaroid:hover{transform:rotate(0) translateY(-6px)}
+.polaroid img{width:100%;aspect-ratio:4/5;object-fit:cover;background:linear-gradient(135deg,#ffd7e6,#fff2f7);display:block}.polaroid figcaption{padding:12px 3px 0;font-style:italic;color:#92516e}
+.uploadNote{font:12px/1.6 Arial;color:#98627b}
+.giftBox{font-size:clamp(90px,22vw,170px);display:inline-block;animation:giftBounce 2s ease-in-out infinite;filter:drop-shadow(0 15px 20px #d86b9833)}@keyframes giftBounce{50%{transform:translateY(-14px) rotate(4deg)}}
+.progress{display:flex;gap:8px;justify-content:center;margin-bottom:20px}.progress i{width:9px;height:9px;border-radius:50%;background:#edc5d5}.progress i.on{background:#c94f83;box-shadow:0 0 0 5px #c94f8318}
+.nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:25px}
+.music{position:fixed;z-index:5;right:14px;bottom:14px;background:#ffffffed;border:1px solid #f1c2d5;border-radius:99px;padding:5px 10px;box-shadow:0 8px 24px #9e426822;backdrop-filter:blur(12px)}.music button{border:0;background:none;color:var(--berry);font:700 12px Arial;padding:10px 13px;min-height:42px}.music button:active{transform:scale(.97)}
+.footer{font:11px Arial;letter-spacing:.1em;color:#ad7890;margin-top:26px}
+@media(max-width:560px){.cards,.photoGrid{grid-template-columns:1fr 1fr;gap:10px}.flip{min-height:155px;padding:15px 10px}.storyCard{border-radius:30px}.screen{padding:18px 12px}.lead{line-height:1.5}}
+@media(max-width:360px){.cards,.photoGrid{grid-template-columns:1fr}.time{min-width:65px}}
+</style></head>
+<body>
+<div id="ambient"></div>
+<div class="wrap">
+<section id="gate" class="screen active"><div class="shell"><div class="glass">
+<div class="heroHeart">♡</div><p class="kicker">A little world made just for Ishika</p>
+<h1>Hey,<br>KucchuPucchu!</h1><p class="lead">Something special is waiting for you, Ishika. Come back when the clock makes a little wish. ✨</p>
+<p class="kicker">Your surprise unlocks in</p><div class="count">
+<div class="time"><b id="d">00</b><small>DAYS</small></div><div class="time"><b id="h">00</b><small>HOURS</small></div><div class="time"><b id="m">00</b><small>MINUTES</small></div><div class="time"><b id="s">00</b><small>SECONDS</small></div></div>
+<p class="uploadNote">12 November 2026 · 12:00 AM · India time</p>
+<p class="lead" style="font-size:clamp(16px,3.8vw,21px);margin:14px auto 0;max-width:540px;">It Is Supposed to be on Time 11:11 But You Know na First Attempt 🧿🩷</p>
+<div id="unlocked" style="display:none"><h2>Your little surprise is here! 💗</h2><button class="btn" onclick="start()">Let's begin our journey</button></div>
+</div><div class="footer">MADE WITH LOVE, ESPECIALLY FOR ISHIKA ♡</div></div></section>
+
+<section id="journey" class="screen"><div class="shell"><div class="progress" id="progress"></div><div class="storyCard">
+<div class="chapterNo" id="chapterNo"></div><div id="chapterContent"></div>
+<div class="nav"><button class="btn light" id="prev" onclick="move(-1)">← Previous</button><button class="btn" id="next" onclick="move(1)">Continue →</button></div>
+</div><div class="footer">ONE LITTLE CHAPTER AT A TIME · FOR ISHIKA ♡</div></div></section>
+</div>
+<div class="music" id="musicPlayer" aria-label="Our little love song">
+  <audio id="audio" preload="auto" loop playsinline>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+  <button id="musicButton" type="button" onclick="musicToggle()" aria-label="Play or pause music">♫ Play our song</button>
+</div>
+<script>
+/* EDIT PERSONAL DETAILS HERE */
+const CONFIG={
+  name:"Ishika",nickname:"KucchuPucchu",
+  unlock:"2026-11-12T00:00:00+05:30",
+  previewMode:false, // LIVE MODE: countdown stays locked until the scheduled 12:00 AM unlock
+  apology:"Hey Ishika, my KucchuPucchu…\n\nI'm sorry if I have bothered you, disturbed your peace or annoyed you sometimes without realising it. I never want to make your day heavier.\n\nYou matter so much to me. I want to be someone who adds happiness, comfort and smiles to your life. ❤️",
+  love:"I don't always know how to put every feeling into words, but I know this: I love you so much.\n\nYou make ordinary moments feel special. I admire you, I care about you, and I feel lucky to have you in my life.\n\nI hope you never doubt how precious you are to me. ❤️",
+  compliments:[
+    ["Your smile","I hope you never run out of reasons to smile. Your happiness is beautiful."],
+    ["Your heart","The person you are is special. Never lose the lovely things that make you you."],
+    ["Your strength","Even on difficult days, remember how capable and strong you are."],
+    ["Your dreams","Your ambitions matter. I want to see you grow, achieve and shine."],
+    ["Your little things","Even the smallest things about you can make my day better."],
+    ["Simply you","You don't have to be perfect to be precious. You are already enough."]
+  ],
+  wishes:[
+    ["Endless happiness","May you always have genuine reasons to smile."],
+    ["Every achievement","May you achieve everything you work and dream for."],
+    ["Beautiful opportunities","May the right doors open for you at the right time."],
+    ["Peace of mind","May your heart feel calm, safe and appreciated."],
+    ["Confidence","May you always believe in your abilities and your worth."],
+    ["A bright future","May life surprise you with more goodness than you imagined."]
+  ],
+  final:"Happy 11:11, my KucchuPucchu! 💗\n\nI wish you happiness today, tomorrow and forever. I hope you achieve every single thing your heart wishes for, and that you always keep smiling, growing and shining.\n\nNever stop believing in yourself. You deserve beautiful things, lovely opportunities and a life full of happiness.\n\nI love you so, so much, Ishika. Always keep that smile. ❤️",
+  musicFile:"music.mp3",
+  // Replace these with your own image paths, e.g. photo1.jpg
+  photos:[
+    ["photo1.jpg","A little moment to remember ♡"],
+    ["photo2.jpg","One of my favourite smiles ♡"],
+    ["photo3.jpg","A memory I keep close ♡"],
+    ["photo4.jpg","More beautiful moments ahead ♡"]
+  ]
+};
+const $=id=>document.getElementById(id);let index=0;
+function floaties(){let chars=["♡","♥","✿","✧","🌸"];for(let i=0;i<34;i++){let e=document.createElement("span");e.className="float";e.textContent=chars[i%chars.length];e.style.left=Math.random()*100+"%";e.style.animationDuration=(10+Math.random()*15)+"s";e.style.animationDelay=(-Math.random()*24)+"s";e.style.fontSize=(16+Math.random()*28)+"px";$("ambient").appendChild(e)}}
+function tick(){let ms=new Date(CONFIG.unlock).getTime()-Date.now();if(CONFIG.previewMode||ms<=0){$("d").textContent=$("h").textContent=$("m").textContent=$("s").textContent="00";$("unlocked").style.display="block";return}let vals=[Math.floor(ms/864e5),Math.floor(ms%864e5/36e5),Math.floor(ms%36e5/6e4),Math.floor(ms%6e4/1e3)];["d","h","m","s"].forEach((id,i)=>$(id).textContent=String(vals[i]).padStart(2,"0"))}
+const chapters=[
+ {title:"Chapter 1 · A little apology 🥺",html:()=>`<div class="heroHeart">💌</div><h2>Before anything else…</h2><p class="lead">I want to tell you something from my heart.</p><button class="btn" onclick="revealText('apology')">Open my little message</button><div id="apology" class="type" style="display:none"></div>`},
+ {title:"Chapter 2 · You are so special 🌷",html:()=>`<div class="heroHeart">🌷</div><h2>Can I tell you something?</h2><p class="lead">Tap each card to discover a little reminder of how special you are.</p><div class="cards">${CONFIG.compliments.map((x,i)=>`<button class="flip" onclick="this.classList.toggle('open');checkCards()"><span class="front">♡<br><br><b>${x[0]}</b><br><small>Tap to reveal</small></span><span class="back"><b>${x[0]}</b><br><br>${x[1]}</span></button>`).join("")}</div><p class="uploadNote">Open every card to continue.</p>`},
+ {title:"Chapter 3 · I love you so much ❤️",html:()=>`<div class="heroHeart">💗</div><h2>I LOVE YOU SO MUCH, ISHIKA!</h2><p class="lead">More than these little words can ever explain.</p><button class="btn" onclick="revealText('loveText')">Read what's in my heart</button><div id="loveText" class="type" style="display:none"></div>`},
+ {title:"Chapter 4 · My wishes for you ✨",html:()=>`<div class="heroHeart">✨</div><h2>Happiness, always</h2><p class="lead">I hope life brings you beautiful things, today and every day.</p><div class="cards">${CONFIG.wishes.map(x=>`<button class="flip" onclick="this.classList.toggle('open');checkCards()"><span class="front">✧<br><br><b>${x[0]}</b><br><small>Tap to open</small></span><span class="back"><b>${x[0]}</b><br><br>${x[1]}</span></button>`).join("")}</div><p class="uploadNote">Tap every wish to open it.</p>`},
+ {title:"A little gallery · Our memories 📸",html:()=>`<div class="heroHeart">📸</div><h2>Little moments, forever memories</h2><p class="lead">Four little memories, kept close to my heart. Every picture reminds me how lucky I am to have you.</p><div class="photoGrid">${CONFIG.photos.map((p,i)=>`<figure class="polaroid"><img src="${p[0]}" alt="Add your photo ${i+1}" onerror="this.style.opacity='.25';this.alt='Add your own photo here'"><figcaption>${p[1]}</figcaption></figure>`).join("")}</div><p class="uploadNote">Four memories, one very special person. ♡</p>`},
+ {title:"The final surprise · For my KucchuPucchu 🎁",html:()=>`<div class="giftBox">🎁</div><h2>One last thing, just for you</h2><p class="lead">Tap the gift. It's filled with all my wishes for you.</p><button class="btn" onclick="gift()">Open your gift</button><div id="giftMessage" class="type" style="display:none"></div>`}
+];
+function show(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));$(id).classList.add("active");window.scrollTo(0,0)}
+function start(){show("journey");render();playMusic()}
+function render(){$("chapterNo").textContent=chapters[index].title;$("chapterContent").innerHTML=chapters[index].html();$("progress").innerHTML=chapters.map((_,i)=>`<i class="${i<=index?"on":""}"></i>`).join("");$("prev").style.display=index===0?"none":"inline-block";$("next").style.display=index===chapters.length-1?"none":"inline-block";$("next").disabled=(index===1||index===3);$("next").style.opacity=$("next").disabled?".45":"1"}
+function checkCards(){let all=[...document.querySelectorAll(".flip")].every(x=>x.classList.contains("open"));if(all){$("next").disabled=false;$("next").style.opacity="1"}}
+function move(d){if(d>0&&$("next").disabled)return;index=Math.max(0,Math.min(chapters.length-1,index+d));render()}
+function revealText(id){$(id).textContent=id==="apology"?CONFIG.apology:CONFIG.love;$(id).style.display="block";$(id).classList.add("reveal")}
+function gift(){$("giftMessage").textContent=CONFIG.final;$("giftMessage").style.display="block";$("giftMessage").classList.add("reveal");burst()}
+function burst(){for(let i=0;i<38;i++){let e=document.createElement("span");e.className="sparkle";e.textContent=["💗","🌸","✨","💕"][i%4];e.style.left=Math.random()*100+"vw";e.style.top=(30+Math.random()*50)+"vh";document.body.appendChild(e);setTimeout(()=>e.remove(),950)}}
+function updateMusicButton(){const a=$("audio");$("musicButton").textContent=a.paused?"♫ Play our song":"Ⅱ Pause music"}
+function playMusic(){const a=$("audio");a.play().then(updateMusicButton).catch(()=>{updateMusicButton()})}
+function musicToggle(){const a=$("audio");if(a.paused){playMusic()}else{a.pause();updateMusicButton()}}
+$("audio").addEventListener("play",updateMusicButton);
+$("audio").addEventListener("pause",updateMusicButton);
+floaties();tick();setInterval(tick,1000);
+</script></body></html>
